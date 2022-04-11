@@ -61,11 +61,11 @@ public class Test extends BaseTest {
 
                 for (String winHandle : chromedriver.getWindowHandles()) {
                     chromedriver.switchTo().window(winHandle);
-                    System.out.println(winHandle);
+                    // System.out.println(winHandle);
                 }
                 List<String> collectExchangeRates = yandexAfterSearch.getResult1();
-                System.out.println(collectExchangeRates.get(1));
-                //Проблемы с выводом русских букв в терминале idea, вместо кириллицы выводятся знаки вопроса
+                System.out.println( " 1 в таблице "+ collectExchangeRates.get(1));
+                System.out.println("Последний в таблице " + collectExchangeRates.get(6));
 
                 return true;
             }
