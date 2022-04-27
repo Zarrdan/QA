@@ -94,11 +94,10 @@ public class StepsAll {
      * На данном шаге производится выбор проивзодителей, параметр передается из class DataProvider
      *
      * @param manufacturerName1
-     * @param manufacturerName2
      */
-    @Step("Выбрать производителя {manufacturerName1} и {manufacturerName2}")
-    public static void selectManufacturer(String manufacturerName1, String manufacturerName2) {
-        new MarketPage(driver).setManufacture(manufacturerName1, manufacturerName2);
+    @Step("Выбрать производителя {manufacturerName1}")
+    public static void selectManufacturer1(String manufacturerName1) {
+        new MarketPage(driver).setManufacture1(manufacturerName1);
         Screenshoter.getScreen(driver);
     }
 
@@ -114,8 +113,8 @@ public class StepsAll {
      * На данном шаге происходит выбор показа 12 элементов на странице
      */
     @Step("Выбор 12 элементов на странице")
-    public static void setPage12Element() {
-        new MarketPage(driver).setPageBy12Element();
+    public static void setPageElement(String set) {
+        new MarketPage(driver).setPageByElement(set);
     }
 
     /**

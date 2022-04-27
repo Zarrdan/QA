@@ -21,8 +21,8 @@ public class StepsAssert {
     public static void checkResult12(WebDriver driver, MarketPage marketPage) {
         Screenshoter.getScreen(driver, marketPage.getExchangeRates());
         Assertions.assertEquals(12, new MarketPage(driver).getResults().size());
-
     }
+
 
     /**
      * Метод проверяет равны ли две строки, первая строчка приходит из функции saveFirstElement

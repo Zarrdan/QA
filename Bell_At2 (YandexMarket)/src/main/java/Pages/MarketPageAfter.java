@@ -42,8 +42,8 @@ public class MarketPageAfter {
      * @return
      */
     public List<WebElement> getResultsFromMarket() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@class, '_2UHry _2vVOc')]")));
-        results = webDriver.findElements(By.xpath("//*[contains(@class, '_2UHry _2vVOc')]"));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@data-zone-name='title'][contains(text(), '')]")));
+        results = webDriver.findElements(By.xpath("//*[@data-zone-name='title'][contains(text(), '')]"));
         return results;
     }
 }

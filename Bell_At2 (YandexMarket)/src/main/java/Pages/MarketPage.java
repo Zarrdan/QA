@@ -34,7 +34,8 @@ public class MarketPage {
      * @param title
      */
     public void selectCategory(String title) {
-        webDriver.findElement(By.xpath("//*[contains(@class, '_10dWC')]")).click();
+        //*[contains(@class, '_10dWC')]
+        webDriver.findElement(By.xpath("//*[@id='catalogPopupButton']")).click();
         this.inputSearch = webDriver.findElement(By.xpath("//*[contains(text(), '" + title + "')]"));
         Actions actions = new Actions(webDriver);
         actions.moveToElement(inputSearch).build().perform();
@@ -47,7 +48,15 @@ public class MarketPage {
      * @param title
      */
     public void selectSubCategory(String title) {
-        webDriver.findElement(By.xpath("//*[contains(@class, 'egKyN _1mqvV _3kgUl')][contains(text(), '" + title + "')]")).click();
+        //*[contains(@class, 'egKyN _1mqvV _3kgUl')]
+        List<WebElement> tableHeaders = webDriver.findElements(By.xpath("//div[@data-zone-name='link']//*[contains(text(), '" + title + "')]"));
+        for (int i = 0; i < tableHeaders.size(); i++){
+            String text = tableHeaders.get(i).getText();
+          //  System.out.println(text);
+            boolean flag = text.equals(title);
+            if (flag == true)
+                tableHeaders.get(i).click();
+        }
     }
 
     /**
@@ -59,19 +68,16 @@ public class MarketPage {
     public void setPrice(String minPrice, String maxPrice) {
         webDriver.findElement(By.xpath("//input[@name='Цена от']")).sendKeys(minPrice);
         webDriver.findElement(By.xpath("//input[@name='Цена до']")).sendKeys(maxPrice);
-
     }
 
     /**
      * Метод для ввода торговой марки
      *
      * @param manufacture1
-     * @param manufacture2
      */
-    public void setManufacture(String manufacture1, String manufacture2) {
-        webDriver.findElement(By.xpath("//*[@class= '_1o8_r xUzR2'] [contains(text(), '" + manufacture1 + "')]")).click();
-        webDriver.findElement(By.xpath("//*[@class= '_1o8_r xUzR2'] [contains(text(), '" + manufacture2 + "')]")).click();
-
+    public void setManufacture1(String manufacture1) {
+        webDriver.findElement(By.xpath("//fieldset[@data-autotest-id='7893318']//*[contains(text(), '" + manufacture1 + "')]")).click();
+        waitResult();
     }
 
     /**
@@ -84,9 +90,9 @@ public class MarketPage {
     /**
      * Метод для выбора количества показов товаров на странице по 12 штук.
      */
-    public void setPageBy12Element() {
-        webDriver.findElement(By.xpath("//*[contains(@class, 'vLDMf')]")).click();
-        webDriver.findElement(By.xpath("//*[contains(@class, '_1KpjX _35Paz')][contains(text(), 'Показывать по 12')]")).click();
+    public void setPageByElement(String set) {
+        webDriver.findElement(By.xpath(" //*[contains(@class, 'vLDMf')]")).click();
+        webDriver.findElement(By.xpath(" //button[contains(text(),'Показывать по " + set + "')]")).click();
         Set<String> tabs = webDriver.getWindowHandles();
         for (String tab : tabs)
             webDriver.switchTo().window(tab);
@@ -100,7 +106,8 @@ public class MarketPage {
      */
     public WebElement getExchangeRates() {
         exchangeRates = webDriver.findElement(By.xpath("//*[contains(@class, '_2G3_d')]"));
-        wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@class, '_2Lvbi _1oZmP')]")));
+        waitResult();
+        //wait.until(ExpectedConditions.invisibilityOfElementLocated(By.xpath("//*[contains(@class, '_2Lvbi _1oZmP')]")));
         return exchangeRates;
 
     }
@@ -112,8 +119,9 @@ public class MarketPage {
      * @return
      */
     public List<WebElement> getResults() {
-        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[contains(@class, '_2UHry _2vVOc')]")));
-        return webDriver.findElements(By.xpath("//*[contains(@class, '_2UHry _2vVOc')]"));
+        //*[contains(@class, '_2UHry _2vVOc')]
+        wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(" //*[@data-zone-name='title'][contains(text(), '')]")));
+        return webDriver.findElements(By.xpath("//*[@data-zone-name='title'][contains(text(), '')]"));
     }
 
     /**
