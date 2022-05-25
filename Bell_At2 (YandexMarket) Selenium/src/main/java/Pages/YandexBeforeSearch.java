@@ -9,12 +9,12 @@ public class YandexBeforeSearch {
     private WebElement buttonSearch;
     private WebDriver webDriver;
     /**
-     * Страница для первоначального поиска на яндекс, сюда приходит запрос и нажимается поиск
+     * РЎС‚СЂР°РЅРёС†Р° РґР»СЏ РїРµСЂРІРѕРЅР°С‡Р°Р»СЊРЅРѕРіРѕ РїРѕРёСЃРєР° РЅР° СЏРЅРґРµРєСЃ, СЃСЋРґР° РїСЂРёС…РѕРґРёС‚ Р·Р°РїСЂРѕСЃ Рё РЅР°Р¶РёРјР°РµС‚СЃСЏ РїРѕРёСЃРє
      */
     public YandexBeforeSearch(WebDriver webDriver){
         this.webDriver = webDriver;
-        this.inputSearch = webDriver.findElement(By.xpath("//input[@aria-label='Запрос']"));
-        this.buttonSearch = webDriver.findElement(By.xpath("//button[span[text()='Найти']]"));
+        this.inputSearch = webDriver.findElement(By.xpath("//input[@aria-label='Р—Р°РїСЂРѕСЃ']"));
+        this.buttonSearch = webDriver.findElement(By.xpath("//button[span[text()='РќР°Р№С‚Рё']]"));
     }
 
     public void find(String text){
