@@ -17,19 +17,19 @@ public class MarketPageAfter {
     private List<WebElement> results;
 
     /**
-     * Конструктор страницы, получает на вход вэбдрайвер, так же создает локаторы на готовность
-     * получения информации для поиска на сайте
+     * РљРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ СЃС‚СЂР°РЅРёС†С‹, РїРѕР»СѓС‡Р°РµС‚ РЅР° РІС…РѕРґ РІСЌР±РґСЂР°Р№РІРµСЂ, С‚Р°Рє Р¶Рµ СЃРѕР·РґР°РµС‚ Р»РѕРєР°С‚РѕСЂС‹ РЅР° РіРѕС‚РѕРІРЅРѕСЃС‚СЊ
+     * РїРѕР»СѓС‡РµРЅРёСЏ РёРЅС„РѕСЂРјР°С†РёРё РґР»СЏ РїРѕРёСЃРєР° РЅР° СЃР°Р№С‚Рµ
      * @param webDriver
      */
     public MarketPageAfter(WebDriver webDriver){
         wait = new WebDriverWait(webDriver,120);
         this.webDriver = webDriver;
         this.inputSearch = webDriver.findElement(By.id("header-search"));
-        this.buttonSearch = webDriver.findElement(By.xpath("//button[span[text()='Найти']]"));
+        this.buttonSearch = webDriver.findElement(By.xpath("//button[span[text()='РќР°Р№С‚Рё']]"));
     }
 
     /**
-     * Данный метод получает аргумент в виде строки, и производит поиск на сайте
+     * Р”Р°РЅРЅС‹Р№ РјРµС‚РѕРґ РїРѕР»СѓС‡Р°РµС‚ Р°СЂРіСѓРјРµРЅС‚ РІ РІРёРґРµ СЃС‚СЂРѕРєРё, Рё РїСЂРѕРёР·РІРѕРґРёС‚ РїРѕРёСЃРє РЅР° СЃР°Р№С‚Рµ
      * @param text
      */
     public void findFirstElement(String text){
@@ -38,7 +38,7 @@ public class MarketPageAfter {
     }
 
     /**
-     * Получение листа в виде вэбэлемента
+     * РџРѕР»СѓС‡РµРЅРёРµ Р»РёСЃС‚Р° РІ РІРёРґРµ РІСЌР±СЌР»РµРјРµРЅС‚Р°
      * @return
      */
     public List<WebElement> getResultsFromMarket() {
