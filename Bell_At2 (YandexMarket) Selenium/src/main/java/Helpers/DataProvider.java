@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.stream.Stream;
 
 /**
- * Стрим аргументов для теста
+ * РЎС‚СЂРёРј Р°СЂРіСѓРјРµРЅС‚РѕРІ РґР»СЏ С‚РµСЃС‚Р°
  */
 public class DataProvider {
     public static Stream<Arguments> provideCheckingArguments(){
@@ -16,7 +16,7 @@ public class DataProvider {
         manufacturer.add("Lenovo");
         manufacturer.add("DELL");
         return Stream.of(
-                Arguments.of("Маркет", "Компьютеры", "Ноутбуки", "10000", "90000", manufacturer, "12")
+                Arguments.of("ГЊГ Г°ГЄГҐГІ", "ГЉГ®Г¬ГЇГјГѕГІГҐГ°Г»", "ГЌГ®ГіГІГЎГіГЄГЁ", "10000", "90000", manufacturer, "12")
         );
     }
 }
