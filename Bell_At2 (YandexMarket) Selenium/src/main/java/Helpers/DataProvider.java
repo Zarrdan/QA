@@ -16,7 +16,7 @@ public class DataProvider {
         manufacturer.add("Lenovo");
         manufacturer.add("DELL");
         return Stream.of(
-                Arguments.of("Ìàðêåò", "Êîìïüþòåðû", "Íîóòáóêè", "10000", "90000", manufacturer, "12")
+                Arguments.of("Маркет", "Компьютеры", "Ноутбуки, "10000", "90000", manufacturer, "12")
         );
     }
 }
